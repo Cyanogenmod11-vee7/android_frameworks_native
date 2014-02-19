@@ -41,6 +41,7 @@ LOCAL_SHARED_LIBRARIES := \
 
 ifeq ($(call is-board-platform-in-list, mpq8092), true)
     LOCAL_CFLAGS            += -DVFM_AVAILABLE
+    LOCAL_SHARED_LIBRARIES  += libqdMetaData
 endif
 
 # Executed only on QCOM BSPs
@@ -54,7 +55,6 @@ else
 endif
     LOCAL_C_INCLUDES        += $(TARGET_OUT_HEADERS)/vpu/
     LOCAL_CFLAGS            += -DQCOM_BSP
-    LOCAL_SHARED_LIBRARIES  += libqdMetaData
 endif
 
 ifeq ($(BOARD_USE_MHEAP_SCREENSHOT),true)
